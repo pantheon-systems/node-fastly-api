@@ -1,0 +1,25 @@
+{
+    "cSpell.words": [
+        "Fastly",
+        "backends",
+        "hostnames",
+    ],
+    "eslint.validate": [
+        {
+            "language": "vue",
+            "autoFix": true
+        },
+        {
+            "language": "javascript",
+            "autoFix": true
+        },
+        {
+            "language": "javascriptreact",
+            "autoFix": true
+        }
+    ],
+    "editor.formatOnSave": false,
+    "eslint.autoFixOnSave": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}
