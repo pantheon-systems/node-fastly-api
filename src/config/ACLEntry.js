@@ -43,7 +43,7 @@ class ACLEntry {
   updateACLEntries(service_id, acl_id, data) {
     return this.request({
       method: 'PATCH',
-      url: `/service/${service_id}/acl/${acl_id}`,
+      url: `/service/${service_id}/acl/${acl_id}/entries`,
       data,
     });
   }
