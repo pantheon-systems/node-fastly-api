@@ -46,6 +46,13 @@ class Service {
       url: `/service/${service_id}`,
     });
   }
+
+  purgeService(service_id) {
+    return this.request({
+      method: 'POST',
+      url: `/service/${service_id}/purge_all`,
+    });
+  }
 }
 
 module.exports = Service;
