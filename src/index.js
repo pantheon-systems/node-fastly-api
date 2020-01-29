@@ -10,6 +10,7 @@ const Dictionary = require('./config/Dictionary');
 const DictionaryInfo = require('./config/DictionaryInfo');
 const DictionaryItem = require('./config/DictionaryItem');
 const Domain = require('./config/Domain');
+const GCSLog = require('./config/GCSLog');
 const Service = require('./config/Service');
 const Settings = require('./config/Settings');
 const VCL = require('./config/VCL');
@@ -25,6 +26,7 @@ class Fastly extends Many(
   DictionaryInfo,
   DictionaryItem,
   Domain,
+  GCSLog,
   Service,
   Settings,
   VCL,
