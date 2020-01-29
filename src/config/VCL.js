@@ -46,6 +46,13 @@ class VCL {
       url: `/service/${service_id}/version/${version}/vcl/${name}`,
     });
   }
+
+  setMainVcl(service_id, version, name) {
+    return this.request({
+      method: 'PUT',
+      url: `/service/${service_id}/version/${version}/vcl/${name}/main`,
+    });
+  }
 }
 
 module.exports = VCL;
