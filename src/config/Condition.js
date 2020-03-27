@@ -40,3 +40,5 @@ class Condition {
     });
   }
 }
+
+module.exports = Condition;
