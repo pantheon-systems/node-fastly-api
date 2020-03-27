@@ -6,6 +6,7 @@ const ACL = require('./config/ACL');
 const ACLEntry = require('./config/ACLEntry');
 const Backend = require('./config/Backend');
 const CacheSetting = require('./config/CacheSetting');
+const Condition = require('./config/Condition');
 const Dictionary = require('./config/Dictionary');
 const DictionaryInfo = require('./config/DictionaryInfo');
 const DictionaryItem = require('./config/DictionaryItem');
@@ -22,6 +23,7 @@ class Fastly extends Many(
   ACLEntry,
   Backend,
   CacheSetting,
+  Condition,
   Dictionary,
   DictionaryInfo,
   DictionaryItem,
