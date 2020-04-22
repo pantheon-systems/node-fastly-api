@@ -14,6 +14,7 @@ const Domain = require('./config/Domain');
 const GCSLog = require('./config/GCSLog');
 const Service = require('./config/Service');
 const Settings = require('./config/Settings');
+const Stats = require('./config/Stats');
 const VCL = require('./config/VCL');
 const VCLSnippet = require('./config/VCLSnippet');
 const Version = require('./config/Version');
@@ -31,6 +32,7 @@ class Fastly extends Many(
   GCSLog,
   Service,
   Settings,
+  Stats,
   VCL,
   VCLSnippet,
   Version
