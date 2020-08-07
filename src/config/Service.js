@@ -24,6 +24,13 @@ class Service {
     });
   }
 
+  readServiceDomains(service_id) {
+    return this.request({
+      method: 'GET',
+      url: `/service/${service_id}/domain`,
+    });
+  }
+
   createService(data) {
     return this.request({
       method: 'POST',
