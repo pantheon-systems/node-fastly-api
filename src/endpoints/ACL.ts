@@ -1,8 +1,9 @@
 import { AxiosInstance } from 'axios';
-import { IEndpointFactory, GenericEndpoint } from './GenericEndpoint';
+import { IEndpointFactory, GenericEndpoint, staticImplements } from './GenericEndpoint';
 
-export default class ACL implements IEndpointFactory {
-  instantiate({jsonRequest, formRequest}: { jsonRequest: AxiosInstance; formRequest: AxiosInstance }): ACLWorker {
+@staticImplements<IEndpointFactory>()
+export default class ACL {
+  static instantiate({jsonRequest, formRequest}: { jsonRequest: AxiosInstance; formRequest: AxiosInstance }): ACLWorker {
     return new ACLWorker({ jsonRequest, formRequest });
   }
 }
@@ -10,6 +11,14 @@ export default class ACL implements IEndpointFactory {
 class ACLWorker extends GenericEndpoint {
   request: AxiosInstance;
   request_form: AxiosInstance;
+  namespace: string = 'ACL';
+  publicMethods: Array<string> = [
+    'readAcls',
+    'readAcl',
+    'createAcl',
+    'updateAcl',
+    'deleteAcl',
+  ];
 
   constructor({ jsonRequest, formRequest }: { jsonRequest: AxiosInstance; formRequest: AxiosInstance }) {
     super({ jsonRequest, formRequest });

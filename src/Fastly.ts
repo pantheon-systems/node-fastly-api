@@ -37,17 +37,19 @@ class Fastly {
     this.use(ACL);
   }
 
-  use(endpointClass: any, addNamespace: boolean = true) {
-    console.log(endpointClass);
+  use(endpointClass: IEndpointFactory, addNamespace: boolean = true) {
+    // console.log(endpointClass);
     const instantiated = endpointClass.instantiate({ jsonRequest: this.request, formRequest: this.request_form });
-    const methods = Object.getOwnPropertyNames(instantiated);
+    const methods = instantiated.publicMethods;
     console.log(methods);
-    // methods.forEach(method => {
-    //   this[method] = instantiated[method];
-    //   if (addNamespace) {
-    //     this[instantiated.namespace][method] = instantiated[method];
-    //   }
-    // });
+
+    methods.forEach(method => {
+      this.prototype[method] = instantiated.prototype[method];
+      // this[method] = instantiated[method];
+      if (addNamespace) {
+        this[instantiated.namespace][method] = instantiated[method];
+      }
+    });
   }
 }
 

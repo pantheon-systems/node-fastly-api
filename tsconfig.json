@@ -9,14 +9,10 @@
     "sourceMap": true,
     "outDir": "dist",
     "baseUrl": ".",
-    "paths": {
-      "*": [
-        "node_modules/*"
-      ]
-    }
+    "experimentalDecorators": true,
   },
   "include": [
-    "src/**/*"
+    "src/Fastly.ts"
   ],
   "exclude": [
     "node_modules/*"
