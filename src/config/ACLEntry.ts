@@ -1,23 +1,25 @@
-/* eslint-disable camelcase */
-class ACLEntry {
-  /**
-   * ACL Entry Methods
-   */
-  readACLEntries(service_id, acl_id) {
+import GenericEndpoint from './GenericEndpoint';
+
+/**
+ * ACL Entry Methods
+ */
+class ACLEntry extends GenericEndpoint {
+
+  readACLEntries(service_id: string, acl_id: string) {
     return this.request({
       method: 'GET',
       url: `/service/${service_id}/acl/${acl_id}/entries`,
     });
   }
 
-  readACLEntry(service_id, acl_id, entry_id) {
+  readACLEntry(service_id: string, acl_id: string, entry_id: string) {
     return this.request({
       method: 'GET',
       url: `/service/${service_id}/acl/${acl_id}/entry/${entry_id}`,
     });
   }
 
-  createACLEntry(service_id, acl_id, data) {
+  createACLEntry(service_id: string, acl_id: string, data: object) {
     return this.request({
       method: 'POST',
       url: `/service/${service_id}/acl/${acl_id}/entry`,
@@ -25,14 +27,14 @@ class ACLEntry {
     });
   }
 
-  deleteACLEntry(service_id, acl_id, entry_id) {
+  deleteACLEntry(service_id: string, acl_id: string, entry_id: string) {
     return this.request({
       method: 'DELETE',
       url: `/service/${service_id}/acl/${acl_id}/entry/${entry_id}`,
     });
   }
 
-  updateACLEntry(service_id, acl_id, entry_id, data) {
+  updateACLEntry(service_id: string, acl_id: string, entry_id: string, data: object) {
     return this.request({
       method: 'PATCH',
       url: `/service/${service_id}/acl/${acl_id}/entry/${entry_id}`,
@@ -40,7 +42,7 @@ class ACLEntry {
     });
   }
 
-  updateACLEntries(service_id, acl_id, data) {
+  updateACLEntries(service_id: string, acl_id: string, data: object) {
     return this.request({
       method: 'PATCH',
       url: `/service/${service_id}/acl/${acl_id}/entries`,
@@ -49,4 +51,4 @@ class ACLEntry {
   }
 }
 
-module.exports = ACLEntry;
+export default ACLEntry;
