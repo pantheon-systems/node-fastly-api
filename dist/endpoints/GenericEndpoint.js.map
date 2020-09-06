@@ -1,1 +1,0 @@
-{"version":3,"file":"GenericEndpoint.js","sourceRoot":"","sources":["../../src/endpoints/GenericEndpoint.ts"],"names":[],"mappings":";;;AAea,QAAA,eAAe,GAAyB,MAAM,eAAe;IAIxE,YAAY,EAAC,WAAW,EAAE,WAAW,EAA2D;QAC9F,IAAI,CAAC,OAAO,GAAG,WAAW,CAAC;QAC3B,IAAI,CAAC,YAAY,GAAG,WAAW,CAAC;IAClC,CAAC;CACF,CAAA"}
