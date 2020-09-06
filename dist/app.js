@@ -1,7 +1,11 @@
-import Many from 'extends-classes';
-
-import ACL from './config/ACL';
-import ACLEntry from './config/ACLEntry';
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const extends_classes_1 = __importDefault(require("extends-classes"));
+const ACL_1 = __importDefault(require("./config/ACL"));
+const ACLEntry_1 = __importDefault(require("./config/ACLEntry"));
 // import Backend from './config/Backend';
 // import CacheSetting from './config/CacheSetting';
 // import Condition from './config/Condition';
@@ -16,36 +20,15 @@ import ACLEntry from './config/ACLEntry';
 // import VCL from './config/VCL';
 // import VCLSnippet from './config/VCLSnippet';
 // import Version from './config/Version';
-
-class Fastly extends Many(
-  ACL,
-  ACLEntry,
-  // Backend,
-  // CacheSetting,
-  // Condition,
-  // Dictionary,
-  // DictionaryInfo,
-  // DictionaryItem,
-  // Domain,
-  // GCSLog,
-  // Service,
-  // Settings,
-  // Stats,
-  // VCL,
-  // VCLSnippet,
-  // Version
-) {
-  constructor(apiKey: string | boolean = false, timeout: number = 15000) {
-    if (!apiKey) {
-      throw new Error('Fastly API key must be provided.');
+class Fastly extends extends_classes_1.default(ACL_1.default, ACLEntry_1.default) {
+    constructor(apiKey = false, timeout = 15000) {
+        if (!apiKey) {
+            throw new Error('Fastly API key must be provided.');
+        }
+        super(apiKey, timeout);
     }
-    super(apiKey, timeout);
-  }
 }
-
-export default (apiKey: string | boolean, timeout: number = 15000): Fastly => new Fastly(apiKey, timeout)
-
-
+exports.default = (apiKey, timeout = 15000) => new Fastly(apiKey, timeout);
 /**
  * Idea: the Fastly class contains a "use" method that loads each endpoint file
  * Each endpoint file has a static member - "instantiate" - that accepts an object with two members:
@@ -105,3 +88,4 @@ export default (apiKey: string | boolean, timeout: number = 15000): Fastly => ne
  *
  *   export default ACL;
  */
+//# sourceMappingURL=app.js.map
