@@ -26,10 +26,11 @@ class GCSLog {
   }
 
   updateLog(service_id, version, old_name, data) {
-    return this.request({
+    const _data = new URLSearchParams(data).toString();
+    return this.request_form({
       method: 'PUT',
       url: `/service/${service_id}/version/${version}/logging/gcs/${old_name}`,
-      data,
+      data: _data,
     });
   }
 

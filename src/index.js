@@ -53,6 +53,15 @@ class Fastly extends Many(
         'Content-Type': 'application/json',
       },
     });
+    self.request_form = axios.create({
+      baseURL: 'https://api.fastly.com/',
+      timeout,
+      headers: {
+        'Fastly-Key': apiKey,
+        Accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    });
   }
 }
 
