@@ -9,8 +9,6 @@ export default class ACLEntry {
 }
 
 class ACLEntryWorker extends GenericEndpoint {
-  request: AxiosInstance;
-  request_form: AxiosInstance;
   namespace: string = "ACLEntry";
   publicMethods: Array<string> = [
     'readACLEntries',

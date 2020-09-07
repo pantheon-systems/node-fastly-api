@@ -9,8 +9,6 @@ export default class ACL {
 }
 
 class ACLWorker extends GenericEndpoint {
-  request: AxiosInstance;
-  request_form: AxiosInstance;
   namespace: string = 'ACL';
   publicMethods: Array<string> = [
     'readAcls',
