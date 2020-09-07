@@ -158,17 +158,18 @@ class StatsWorker extends GenericEndpoint {
       region: null,
     };
 
-    const filterEmpty = obj =>
-      Object
+    const filterEmpty: any = (obj: { [x: string]: any; }) => {
+      return Object
         .keys(obj)
         .filter(k => obj[k] != null)
         .reduce((newObj, k) => {
           return typeof obj[k] === "object"
             ? { ...newObj, [k]: filterEmpty(obj[k]) }
             : { ...newObj, [k]: obj[k] };
-          }, {});
+        }, {});
+    };
 
-    this.muxParams = p => ({ ...this._defaultParams, ...filterEmpty(p) });
+    this.muxParams = (p: any) => ({ ...this._defaultParams, ...filterEmpty(p) });
   }
 
   readStats(field: string, params: Params = {
