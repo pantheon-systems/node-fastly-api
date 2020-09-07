@@ -7,6 +7,8 @@ import Backend from './endpoints/Backend';
 import CacheSetting from './endpoints/CacheSetting';
 import Condition from './endpoints/Condition';
 import Dictionary from './endpoints/Dictionary';
+import DictionaryInfo from './endpoints/DictionaryInfo';
+import DictionaryItem from './endpoints/DictionaryItem';
 
 class Fastly {
   request: AxiosInstance = null;
@@ -47,6 +49,8 @@ class Fastly {
     this.use(CacheSetting);
     this.use(Condition);
     this.use(Dictionary);
+    this.use(DictionaryInfo);
+    this.use(DictionaryItem);
   }
 
   /**
