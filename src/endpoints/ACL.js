@@ -37,7 +37,16 @@ var ACLWorker = /** @class */ (function (_super) {
     __extends(ACLWorker, _super);
     function ACLWorker(_a) {
         var jsonRequest = _a.jsonRequest, formRequest = _a.formRequest;
-        return _super.call(this, { jsonRequest: jsonRequest, formRequest: formRequest }) || this;
+        var _this = _super.call(this, { jsonRequest: jsonRequest, formRequest: formRequest }) || this;
+        _this.namespace = 'ACL';
+        _this.publicMethods = [
+            'readAcls',
+            'readAcl',
+            'createAcl',
+            'updateAcl',
+            'deleteAcl',
+        ];
+        return _this;
     }
     ACLWorker.prototype.readAcls = function (service_id, version) {
         return this.request({

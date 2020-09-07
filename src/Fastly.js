@@ -41,18 +41,23 @@ var Fastly = /** @class */ (function () {
         this.use(ACL_1["default"]);
     }
     Fastly.prototype.use = function (endpointClass, addNamespace) {
+        var _this = this;
         if (addNamespace === void 0) { addNamespace = true; }
-        // console.log(endpointClass);
         var instantiated = endpointClass.instantiate({ jsonRequest: this.request, formRequest: this.request_form });
-        var methods = Object.getOwnPropertyNames(instantiated);
-        console.log(methods);
-        // methods.forEach(method => {
-        //   this[method] = instantiated[method];
-        //   if (addNamespace) {
-        //     this[instantiated.namespace][method] = instantiated[method];
-        //   }
-        // });
+        var methods = instantiated.publicMethods;
+        methods.forEach(function (method) {
+            _this[method] = instantiated[method];
+            if (addNamespace) {
+                _this[instantiated.namespace][method] = instantiated[method];
+            }
+        });
     };
     return Fastly;
 }());
 var foo = new Fastly('asdf');
+foo.ACL.readAcls('123', 1).then(function (d) {
+    console.log(d.data);
+});
+foo.readAcls('123', 1).then(function (d) {
+    console.log(d.data);
+});

@@ -4,7 +4,7 @@
   "description": "NodeJS Fastly API library",
   "main": "src/index.js",
   "scripts": {
-    "dev": "tsc src/Fastly.ts",
+    "dev": "tsc -p tsconfig.json",
     "test": "mocha"
   },
   "author": "Doug Cone <doug.cone@pantheon.io>",

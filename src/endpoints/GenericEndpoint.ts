@@ -13,6 +13,7 @@ interface IEndpointConstructor {
 }
 
 interface IEndpoint {
+  [k: string]: any;
   request: AxiosInstance;
   request_form: AxiosInstance;
   namespace: string;

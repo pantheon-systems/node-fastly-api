@@ -7,6 +7,8 @@ class Fastly {
   request: AxiosInstance = null;
   request_form: AxiosInstance = null;
 
+  [k: string]: any;
+
   constructor(apiKey: string | boolean = false, timeout: number = 15000) {
     if (!apiKey) {
       throw new Error('Fastly API key must be provided.');
@@ -37,16 +39,16 @@ class Fastly {
     this.use(ACL);
   }
 
-  use(endpointClass: IEndpointFactory, addNamespace: boolean = true) {
-    // console.log(endpointClass);
+  use(endpointClass: IEndpointFactory, addNamespace: boolean = true): void {
     const instantiated = endpointClass.instantiate({ jsonRequest: this.request, formRequest: this.request_form });
     const methods = instantiated.publicMethods;
-    console.log(methods);
 
     methods.forEach(method => {
-      this.prototype[method] = instantiated.prototype[method];
-      // this[method] = instantiated[method];
+      this[method] = instantiated[method];
       if (addNamespace) {
+        if (!(instantiated.namespace in this)) {
+          this[instantiated.namespace] = {};
+        }
         this[instantiated.namespace][method] = instantiated[method];
       }
     });
@@ -54,3 +56,7 @@ class Fastly {
 }
 
 const foo = new Fastly('asdf');
+
+foo.readAcls('123', 1).then((d: { data: any; }) => {
+  console.log(d.data);
+});

@@ -10,7 +10,7 @@
       "name": "Launch Program",
       "program": "${workspaceFolder}/src/Fastly.ts",
       "outFiles": [
-        "${workspaceFolder}/**/*.js"
+        "${workspaceFolder}/dist/**/*.js"
       ],
       "preLaunchTask": "tsc: build - tsconfig.json"
     }
