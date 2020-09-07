@@ -1,7 +1,8 @@
 import axios, { AxiosInstance } from 'axios';
-import { IEndpointFactory } from './endpoints/GenericEndpoint'
+import { IEndpointFactory } from './endpoints/GenericEndpoint';
 
-import ACL from './endpoints/ACL'
+import ACL from './endpoints/ACL';
+import ACLEntry from './endpoints/ACLEntry';
 
 class Fastly {
   request: AxiosInstance = null;
@@ -37,8 +38,15 @@ class Fastly {
     });
 
     this.use(ACL);
+    this.use(ACLEntry);
   }
 
+  /**
+   * Inject the contents of a generic endpoint into the API class.
+   *
+   * @param {IEndpointFactory} endpointClass The instantiator class for the endpoint.
+   * @param {boolean} [addNamespace=true] Whether or not to duplicate the method in the namespace of the endpoint.
+   */
   use(endpointClass: IEndpointFactory, addNamespace: boolean = true): void {
     const instantiated = endpointClass.instantiate({ jsonRequest: this.request, formRequest: this.request_form });
     const methods = instantiated.publicMethods;

@@ -20,10 +20,6 @@ class ACLWorker extends GenericEndpoint {
     'deleteAcl',
   ];
 
-  constructor({ jsonRequest, formRequest }: { jsonRequest: AxiosInstance; formRequest: AxiosInstance }) {
-    super({ jsonRequest, formRequest });
-  }
-
   readAcls(service_id: string, version: number) {
     return this.request({
       method: 'GET',
