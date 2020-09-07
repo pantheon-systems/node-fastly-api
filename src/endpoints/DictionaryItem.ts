@@ -64,5 +64,3 @@ class DictionaryItemWorker extends GenericEndpoint {
     });
   }
 }
-
-module.exports = DictionaryItem;

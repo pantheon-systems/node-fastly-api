@@ -9,6 +9,7 @@ import Condition from './endpoints/Condition';
 import Dictionary from './endpoints/Dictionary';
 import DictionaryInfo from './endpoints/DictionaryInfo';
 import DictionaryItem from './endpoints/DictionaryItem';
+import Domain from './endpoints/Domain';
 
 class Fastly {
   request: AxiosInstance = null;
@@ -51,6 +52,7 @@ class Fastly {
     this.use(Dictionary);
     this.use(DictionaryInfo);
     this.use(DictionaryItem);
+    this.use(Domain);
   }
 
   /**
