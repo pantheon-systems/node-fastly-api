@@ -3,6 +3,7 @@ import { IEndpointFactory } from './endpoints/GenericEndpoint';
 
 import ACL from './endpoints/ACL';
 import ACLEntry from './endpoints/ACLEntry';
+import Backend from './endpoints/Backend';
 
 class Fastly {
   request: AxiosInstance = null;
@@ -39,6 +40,7 @@ class Fastly {
 
     this.use(ACL);
     this.use(ACLEntry);
+    this.use(Backend);
   }
 
   /**
