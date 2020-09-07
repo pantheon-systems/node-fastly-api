@@ -6,6 +6,7 @@ import ACLEntry from './endpoints/ACLEntry';
 import Backend from './endpoints/Backend';
 import CacheSetting from './endpoints/CacheSetting';
 import Condition from './endpoints/Condition';
+import Dictionary from './endpoints/Dictionary';
 
 class Fastly {
   request: AxiosInstance = null;
@@ -45,6 +46,7 @@ class Fastly {
     this.use(Backend);
     this.use(CacheSetting);
     this.use(Condition);
+    this.use(Dictionary);
   }
 
   /**
