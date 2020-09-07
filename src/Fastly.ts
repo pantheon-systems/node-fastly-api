@@ -12,6 +12,8 @@ import DictionaryItem from './endpoints/DictionaryItem';
 import Domain from './endpoints/Domain';
 import GCSLog from './endpoints/GCSLog';
 import Service from './endpoints/Service';
+import Settings from './endpoints/Settings';
+import Stats from './endpoints/Stats';
 
 class Fastly {
   request: AxiosInstance = null;
@@ -57,6 +59,8 @@ class Fastly {
     this.use(Domain);
     this.use(GCSLog);
     this.use(Service);
+    this.use(Settings);
+    this.use(Stats);
   }
 
   /**
