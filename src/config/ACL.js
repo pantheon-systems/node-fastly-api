@@ -1,25 +1,24 @@
-import GenericEndpoint from './GenericEndpoint';
+/* eslint-disable camelcase */
+class ACL {
+  /**
+   * ACL methods.
+   */
 
-/**
- * ACL Methods
- */
-class ACL extends GenericEndpoint {
-
-  readAcls(service_id: string, version: number) {
+  readAcls(service_id, version) {
     return this.request({
       method: 'GET',
       url: `/service/${service_id}/version/${version}/acl`,
     });
   }
 
-  readAcl(service_id: string, version: number, name: string) {
+  readAcl(service_id, version, name) {
     return this.request({
       method: 'GET',
-      url: `/service/${service_id}/verison/${version}/acl/${name}`,
+      url: `/service/${service_id}/version/${version}/acl/${name}`,
     });
   }
 
-  createAcl(service_id: string, version: number, data: object) {
+  createAcl(service_id, version, data) {
     return this.request({
       method: 'POST',
       url: `/service/${service_id}/version/${version}/acl`,
@@ -27,7 +26,7 @@ class ACL extends GenericEndpoint {
     });
   }
 
-  updateAcl(service_id: string, version: number, old_name: string, data: object) {
+  updateAcl(service_id, version, old_name, data) {
     return this.request({
       method: 'PUT',
       url: `/service/${service_id}/version/${version}/acl/${old_name}`,
@@ -35,7 +34,7 @@ class ACL extends GenericEndpoint {
     });
   }
 
-  deleteAcl(service_id: string, version: number, name: string) {
+  deleteAcl() {
     return this.request({
       method: 'DELETE',
       url: `/service/${service_id}/version/${version}/acl/${name}`,
@@ -43,4 +42,4 @@ class ACL extends GenericEndpoint {
   }
 }
 
-export default ACL;
+module.exports = ACL;
