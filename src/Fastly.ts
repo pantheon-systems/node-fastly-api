@@ -14,6 +14,7 @@ import GCSLog from './endpoints/GCSLog';
 import Service from './endpoints/Service';
 import Settings from './endpoints/Settings';
 import Stats from './endpoints/Stats';
+import TlsSubscription from './endpoints/TlsSubscriptions';
 import VCL from './endpoints/VCL';
 import VCLSnippet from './endpoints/VCLSnippet';
 import Version from './endpoints/Version';
@@ -64,6 +65,7 @@ class Fastly {
     this.use(Service);
     this.use(Settings);
     this.use(Stats);
+    this.use(TlsSubscription);
     this.use(VCL);
     this.use(VCLSnippet);
     this.use(Version);
