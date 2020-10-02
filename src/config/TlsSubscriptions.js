@@ -11,7 +11,7 @@ class TlsSubscription {
   readSubscription(subscription_id) {
     return this.request({
       method: 'GET',
-      url: `/tls/subscriptions/${subscription_id}`,
+      url: `/tls/subscriptions/${subscription_id}?include=tls_authorizations`,
     });
   }
 
