@@ -49,7 +49,7 @@ class Fastly extends Many(
       timeout,
       headers: {
         'Fastly-Key': apiKey,
-        Accept: 'application/json',
+        Accept: 'application/vnd.api+json',
         'Content-Type': 'application/json',
       },
     });

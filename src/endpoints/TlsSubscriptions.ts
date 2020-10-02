@@ -27,7 +27,7 @@ class TlsSubscriptionWorker extends GenericEndpoint {
   readSubscription(subscription_id: string) {
     return this.request({
       method: 'GET',
-      url: `/tls/subscriptions/${subscription_id}`,
+      url: `/tls/subscriptions/${subscription_id}?include=tls_authorizations`,
     });
   }
 
