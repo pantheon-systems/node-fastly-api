@@ -4,6 +4,7 @@ import { IEndpointFactory } from './endpoints/GenericEndpoint';
 import ACL from './endpoints/ACL';
 import ACLEntry from './endpoints/ACLEntry';
 import Backend from './endpoints/Backend';
+import BQLog from './endpoints/BQLog';
 import CacheSetting from './endpoints/CacheSetting';
 import Condition from './endpoints/Condition';
 import Dictionary from './endpoints/Dictionary';
@@ -55,6 +56,7 @@ class Fastly {
     this.use(ACL);
     this.use(ACLEntry);
     this.use(Backend);
+    this.use(BQLog);
     this.use(CacheSetting);
     this.use(Condition);
     this.use(Dictionary);
