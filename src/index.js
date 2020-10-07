@@ -5,6 +5,7 @@ const axios = require('axios');
 const ACL = require('./config/ACL');
 const ACLEntry = require('./config/ACLEntry');
 const Backend = require('./config/Backend');
+const BQLog = require('./config/BQLog');
 const CacheSetting = require('./config/CacheSetting');
 const Condition = require('./config/Condition');
 const Dictionary = require('./config/Dictionary');
@@ -24,6 +25,7 @@ class Fastly extends Many(
   ACL,
   ACLEntry,
   Backend,
+  BQLog,
   CacheSetting,
   Condition,
   Dictionary,
