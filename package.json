@@ -1,5 +1,5 @@
 {
-  "name": "acdn-fastly-api",
+  "name": "node-fastly-api",
   "version": "1.0.0",
   "description": "NodeJS Fastly API library",
   "main": "src/index.js",
