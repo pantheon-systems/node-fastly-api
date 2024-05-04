@@ -1,10 +1,8 @@
-const { timeStamp } = require('console');
-
 class TlsSubscription {
-  readSubscriptions() {
+  readSubscriptions({ page = 1, size = 100 } = {}) {
     return this.request({
       method: 'GET',
-      url: `/tls/subscriptions`,
+      url: `/tls/subscriptions?page[number]=${page}&page[size]=${size}`,
     });
   }
 
