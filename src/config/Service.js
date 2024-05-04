@@ -3,10 +3,10 @@ class Service {
   /**
    * Service Methods
    */
-  readServices() {
+  readServices({ page = 1, per_page = 1000, direction = 'ascend', sort = 'created' } = {}) {
     return this.request({
       method: 'GET',
-      url: `/service`,
+      url: `/service?direction=${direction}&sort=${sort}&page=${page}&per_page=${per_page}`,
     });
   }
 
